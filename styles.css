@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+
+@font-face {
+  font-family: 'Diatype Compressed';
+  src: url('./font/ABCDiatypeCompressed-Bold-Trial.woff2') format('woff2');
+  font-weight: bold;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Diatype Medium';
+  src: url('./font/ABCDiatype-Medium-Trial.woff2') format('woff2');
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'Diatype Condensed';
+  src: url('./font/ABCDiatypeCondensed-Bold-Trial.woff2') format('woff2');
+  font-weight: bold;
+  font-style: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ff4a00;
+  color: white;
+  font-family: 'Diatype Compressed';
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.poster {
+  width: 830px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-text,
+.bottom-text {
+  width: 100%;
+  font-size: 28px;
+  text-transform: uppercase;
+  font-family: 'Diatype Condensed';
+}
+.top-text{
+    margin-bottom: 50px;
+}
+.bottom-text{
+    margin-top: 40px;
+}
+
+.line {
+  text-align: justify;
+  text-align-last: justify;
+  line-height: 0.5;
+}
+
+.line::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+
+.title {
+  width: 100%;
+  margin: 0 0;
+  color:#FFE88E;
+  position:relative;
+}
+
+.making {
+  font-size: 400px;
+  line-height: 0.7;
+}
+
+.space-row {
+  display: flex;
+  align-items: center;
+  font-size: 400px;
+  line-height: 0.85;
+  width: 100%;
+}
+
+.ce {
+  margin-left: auto;
+}
+
+.polygon-btn {
+  position: absolute;  
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+
+  width: 440px;
+  height: 440px;
+
+  background: white;
+  color: black;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Diatype Compressed';
+  font-size:48px;
+
+  transition: clip-path 0.3s ease;
+  clip-path: polygon(
+    20% 0%, 
+    100% 20%, 
+    80% 100%, 
+    0% 80%
+  );
+  transition:0.3s ease;
+
+
+  z-index: 10; 
+}
+.polygon-btn:hover{
+  height:400px;
+  width:400px;
+background-color:black;
+color:white;
+transition:0.25s ease;
+font-size:70px;
+}
+
+.polygon-btn:active{
+  height:350px;
+  width:350px;
+  transition:0.15s;
+  font-size:60px;
+}
