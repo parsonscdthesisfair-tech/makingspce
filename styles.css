@@ -312,9 +312,9 @@ margin-top:12px;
     font-size: clamp(80px, 22vw, 140px);
     } */
 
-.info-location, .school-block p {
-    font-size:16px;
-}
+    .info-location, .school-block p {
+        font-size:16px;
+    }
     .info-block {
     grid-column: 1;
     grid-row: 2;
@@ -326,12 +326,14 @@ margin-top:12px;
         font-size:32px;
         max-width:900px;
     }
-.polygon-btn {
-    font-size:42px;
-}
-.polygon-btn:hover{
-    font-size:50px;
-}
+    .polygon-btn {
+        font-size:42px;
+        bottom:16px;
+        right:16px;
+    }
+    .polygon-btn:hover{
+        font-size:50px;
+    }
     .rsvp-wrapper {
     justify-content: flex-end;
     }
