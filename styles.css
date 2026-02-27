@@ -357,7 +357,10 @@ margin-top:12px;
 
     }
 
+    .footer-item:nth-child(1) {
+    grid-row: 1 / span 2;
+    }
     .footer-item:nth-child(2) {
-    grid-row: 2;
+    grid-row: 2 / span 2;
     }
 }
