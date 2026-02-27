@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap'); */
 
 @font-face {
   font-family: 'Diatype Compressed';
@@ -7,139 +7,353 @@
   font-style: bold;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Diatype Medium';
   src: url('./font/ABCDiatype-Medium-Trial.woff2') format('woff2');
   font-weight: bold;
   font-style: bold;
-}
+} */
+
 @font-face {
   font-family: 'Diatype Condensed';
-  src: url('./font/ABCDiatypeCondensed-Bold-Trial.woff2') format('woff2');
-  font-weight: bold;
-  font-style: bold;
+  src: url('./font/ABCDiatypeCondensed-Medium-Trial.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+:root {
+    --orange: #FF4800;
+    --cream: #FFE88E;
+    --white: #FFFFFF;
+}
+
+::selection{
+    background: var(--cream);
+    color:black;
 }
 
 body {
-  background: #ff4a00;
-  color: white;
-  font-family: 'Diatype Compressed';
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  scale:.67;
+    font-family: 'Diatype Condensed', 'Arial Narrow', sans-serif;
+    background: var(--orange);
+    color: var(--cream);
+    overflow-x: hidden;
+}
+
+.main {
+    background: var(--orange);
+    min-height: calc(100vh - 120px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    padding: 40px 0px;
+    margin-left:80px;
+    margin-right:80px;
+    column-gap: 48px;
+    position: relative;
+    width: 1000px;
+    margin:auto;
+    transition: 0.3s ease;
+}
+
+img{
+    width:500px;
+    transition: 0.3s ease;
 
 }
 
-.poster {
-  width: 830px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.title-block {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10px;
+    gap: 10px;
 }
 
-.top-text,
-.bottom-text {
-  width: 100%;
-  font-size: 28px;
-  text-transform: uppercase;
-  font-family: 'Diatype Condensed';
-}
-.top-text{
-    margin-bottom: 50px;
-}
-.bottom-text{
-    margin-top: 40px;
+.title-word {
+    font-family: 'Diatype Compressed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+text-align: justify;
+text-align-last: justify;
+    white-space: nowrap;
 }
 
-.line {
-  text-align: justify;
-  text-align-last: justify;
-  line-height: 0.5;
+.title-making {
+    font-size: clamp(120px, 19vw, 230px);
 }
 
-.line::after {
-  content: "";
-  display: inline-block;
-  width: 100%;
+.title-bottom-row {
+    display: flex;
+    gap: 0;
+}
+
+.title-sp {
+    font-size: clamp(120px, 19vw, 230px);
+}
+
+.title-spacer {
+    flex: 1;
+}
+
+.title-ce {
+    font-size: clamp(120px, 19vw, 230px);
+}
+
+/* Force the bottom row (SP + CE) to same total width as MAKING */
+.title-making-wrapper,
+.title-bottom-row-wrapper {
+    overflow: visible;
+}
+
+.info-block {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 12px;
+    gap: 30px;
+}
+
+.info-desc {
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 200;
+    color: var(--white);
+    max-width: 500px;
+}
+
+.info-desc p + p {
+    margin-top: 14px;
+}
+
+.info-location {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    letter-spacing: 0.01em;
 }
 
 
-.title {
-  width: 100%;
-  margin: 0 0;
-  color:#FFE88E;
-  position:relative;
+.school-block {
+    grid-column: 1;
+    grid-row: 2;
+    padding-bottom: 28px;
+    padding-top: 28px;
 }
 
-.making {
-  font-size: 400px;
-  line-height: 0.7;
+.school-block p {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    
 }
 
-.space-row {
-  display: flex;
-  align-items: center;
-  font-size: 400px;
-  line-height: 0.85;
-  width: 100%;
-}
-
-.ce {
-  margin-left: auto;
+/* ─── polygon ─── */
+.rsvp-wrapper {
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 20px;
 }
 
 .polygon-btn {
-  position: absolute;  
-  left: 50%;
-  top: 75%;
-  transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(180px, 18vw, 340px);
+    height: clamp(180px, 18vw, 340px);
+    background: var(--white);
+    color: #111;
+    font-family: 'Diatype Compressed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 4.3vw;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    clip-path: polygon(50% 5%, 95% 25%, 95% 75%, 50% 95%, 5% 75%, 5% 25%);
+    transition: clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+    transition:0.3s ease;
 
-  width: 440px;
-  height: 440px;
-
-  background: white;
-  color: black;
-  text-decoration: none;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: 'Diatype Compressed';
-  font-size:48px;
-
-  transition: clip-path 0.3s ease;
-  clip-path: polygon(
-    20% 0%, 
-    100% 20%, 
-    80% 100%, 
-    0% 80%
-  );
-  transition:0.3s ease;
-
-
-  z-index: 10; 
 }
-.polygon-btn:hover{
-  height:400px;
-  width:400px;
-background-color:black;
-color:white;
-transition:0.25s ease;
-font-size:70px;
+
+.polygon-btn:hover {
+    background: black;
+    color:white;
+    scale:0.92;
+    font-size: 5vw;
+    transition:0.3s ease;
 }
 
 .polygon-btn:active{
-  height:350px;
-  width:350px;
-  transition:0.15s;
-  font-size:60px;
+    scale:0.8;
+}
+
+
+/* ─── footer ─── */
+footer {
+    background: var(--cream);
+    padding: 32px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 48px;
+padding: 40px 48px 40px 48px;
+margin-top:12px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    width: 1000px;
+    margin:auto;
+    font-size: clamp(14px, 1.3vw, 22px);
+    transition:0.3s ease;
+
+}
+
+.footer-content a {
+    font-size: clamp(14px, 1.3vw, 22px);
+    font-weight: 400;
+    color: var(--orange);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    line-height: 1.3;
+}
+
+.footer-item {
+    font-weight: 400;
+    color: var(--orange);
+    line-height: 1.3;
+}
+
+.title-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.row-making {
+    display: block;
+}
+
+.row-spce {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/* ─── media queries ─── */
+
+@media (max-width:1120px){
+    .main{
+        width:840px;
+        /* column-gap:20px; */
+        margin:auto;
+    }
+    img{
+        width:400px;
+    }
+    .footer-content{
+        width:840px;
+    }
+}
+@media (max-width: 900px) {
+    .main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 28px 20px;
+    width:auto;
+    }
+
+  .title-container{
+    display: flex;     /* NOT inline-flex */
+    width: 100%;
+  }
+
+  .title-container img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+
+    .title-block {
+    grid-column: 1;
+    grid-row: 1;
+    }
+
+    /* .title-making {
+    font-size: clamp(80px, 22vw, 140px);
+    }
+
+    .title-sp, .title-ce {
+    font-size: clamp(80px, 22vw, 140px);
+    } */
+
+.info-location, .school-block p {
+    font-size:16px;
+}
+    .info-block {
+    grid-column: 1;
+    grid-row: 2;
+    padding-left: 0;
+    padding-top: 24px;
+    width:90vw;
+    }
+    .info-desc {
+        font-size:32px;
+        max-width:900px;
+    }
+.polygon-btn {
+    font-size:42px;
+}
+.polygon-btn:hover{
+    font-size:50px;
+}
+    .rsvp-wrapper {
+    justify-content: flex-end;
+    }
+
+    .school-block {
+    grid-column: 1;
+    grid-row: 3;
+    }
+
+    footer {
+    flex-direction: column;
+    padding: 28px 24px;
+    gap: 28px;
+    }
+    .footer-content{
+        width:auto;
+        margin:0px;
+            gap: 24px;
+
+    }
+
+    .footer-item:nth-child(2) {
+    grid-row: 2;
+    }
 }

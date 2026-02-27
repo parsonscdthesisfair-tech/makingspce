@@ -1,79 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAKING SP-CE</title>
+  <link rel="stylesheet" href="styles.css">
 
-<link rel="stylesheet" href="styles.css">
-
-<title>Making Space</title>
 </head>
 <body>
 
-<div class="poster">
+  <main class="main">
 
-  <div class="top-text">
-    <div class="line">PARSONS SCHOOL OF DESIGN</div>
-    <div class="line">BFA COMMUNICATION DESIGN 2026</div>
-    <div class="line">SENIOR THESIS SHOW</div>
-  </div>
-
-  <div class="title">
-    <div class="making">MAKING</div>
-    <div class="space-row">
-      <span>SP</span>
-      <a href="https://eventbrite.com" target="_blank" class="polygon-btn">
-        RSVP
-      </a>
-      <span class="ce">CE</span>
+    <div class="title-block">
+      <div class="title-container" id="titleContainer">
+        <img src="./img/MAKINGSPCE.svg">
+        <!-- <div class="row-making">
+          <span class="title-word title-making" id="wordMaking">MAKING</span>
+        </div>
+        <div class="row-spce" id="rowSpce">
+          <span class="title-word title-sp">SP</span>
+          <span class="title-word title-ce">CE</span>
+        </div> -->
+      </div>
+      <div class="school-block">
+        <p>PARSONS SCHOOL OF DESIGN<br>
+        BFA COMMUNICATION DESIGN 2026<br>
+        SENIOR THESIS SHOW</p>
+      </div>
     </div>
-  </div>
 
-  <div class="bottom-text">
-    <div class="line">39_WEST 13TH_STREET, 2ND_FLOOR</div>
-    <div class="line">FRIDAY, APRIL_17TH, 2026</div>
-    <div class="line">10:00_AM – 7:00_PM</div>
-  </div>
-
-</div>
-
-<script>
-const polygon = document.querySelector(".polygon-btn");
-
-function generateHexagon() {
-  const points = 6;
-  const centerX = 50;
-  const centerY = 50;
-
-  const baseRadius = 42;  
-  const radiusVariation = 20; 
-  const angleVariation = 0.55;
-
-  let values = [];
-
-  for (let i = 0; i < points; i++) {
-    const baseAngle = (Math.PI * 2 / points) * i - Math.PI / 2;
-
-    const angle = baseAngle + (Math.random() - 0.5) * angleVariation;
-    const radius = baseRadius + (Math.random() - 0.5) * radiusVariation;
-
-    const x = centerX + radius * Math.cos(angle);
-    const y = centerY + radius * Math.sin(angle);
-
-    values.push(`${x}% ${y}%`);
-  }
-
-  return `polygon(${values.join(",")})`;
-}
-
-function changeShape() {
-  polygon.style.clipPath = generateHexagon();
-}
-
-setInterval(changeShape, 1000);
-</script>
+    <div class="info-block">
+      <div class="info-desc">
+        <p>MAKING SP-CE is the student-led Senior Thesis Showcase by the BFA Communication Design Class of 2026 
+          at Parsons School of Design.</p>
+        <p>The exhibition features a wide range of thesis projects, including web platforms, publications, editorial systems, educational tools, interactive experiences, games, motion graphics, and experimental digital products. RSVP to come support the amazing work by our graduating students!</p>
+      </div>
+      <div class="info-location">
+        39 WEST 13TH STREET, 2ND FLOOR<br>
+        FRIDAY, APRIL 17TH, 2026<br>
+        11:00 AM – 7:00 PM
+      </div>
+      <div class="rsvp-wrapper">
+        <a href="https://events.humanitix.com/parsons-cd-making-space" target="_blank" class="polygon-btn" id="rsvpBtn">RSVP</a>
+      </div>
+    </div>
 
 
+
+  </main>
+
+  <footer>
+    <div class="footer-content">
+     <div class="footer-item">
+      <a target="_blank" href="https://instagram.com/makingsp_ce" target="_blank">Instagram</a><br>
+      <a target="_blank" href="https://www.newschool.edu/parsons/bfa-communication-design/" target="_blank">Parsons BFA Communication Design</a><br>
+      <a target="_blank" href="https://bfacd.parsons.edu/" target="_blank">Thesis Website</a>
+    </div>
+    <div class="footer-item">
+      Site by MAKING SP-CE.<br>
+      Typeface by <a target="_blank" href="https://abcdinamo.com">ABC Dinamo.</a><br>
+      2026. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+
+    const polygon = document.getElementById('rsvpBtn');
+
+    function generatePolygon() {
+      const points = 6;
+      const centerX = 50;
+      const centerY = 50;
+      const baseRadius = 42;
+      const radiusVariation = 20;
+      const angleVariation = 0.55;
+
+      let values = [];
+      for (let i = 0; i < points; i++) {
+        const baseAngle = (Math.PI * 2 / points) * i - Math.PI / 2;
+        const angle = baseAngle + (Math.random() - 0.5) * angleVariation;
+        const radius = baseRadius + (Math.random() - 0.5) * radiusVariation;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        values.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+      }
+      return `polygon(${values.join(', ')})`;
+    }
+
+    function changeShape() {
+      polygon.style.clipPath = generatePolygon();
+    }
+
+    // Initial shape + interval
+    changeShape();
+    setInterval(changeShape, 1000);
+  </script>
 
 </body>
 </html>
