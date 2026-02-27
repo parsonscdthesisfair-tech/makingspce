@@ -217,19 +217,19 @@ footer {
     justify-content: space-between;
     align-items: flex-start;
     gap: 48px;
-padding: 40px 48px 40px 48px;
+padding: 40px 0px;
 margin-top:12px;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 500px auto;
     gap: 48px;
     width: 1000px;
     margin:auto;
     font-size: clamp(14px, 1.3vw, 22px);
     transition:0.3s ease;
-
+transform:03s ease;
 }
 
 .footer-content a {
@@ -275,6 +275,7 @@ margin-top:12px;
         width:400px;
     }
     .footer-content{
+        grid-template-columns: 1fr 1fr;
         width:840px;
     }
 }
@@ -316,11 +317,14 @@ margin-top:12px;
         font-size:21px;
         letter-spacing:normal;
     }
+    .school-block{
+        display:none;
+    }
     .info-block {
         grid-column: 1;
         grid-row: 2;
         padding-left: 0;
-        padding-top: 32px;
+        padding-top: 56px;
         padding-bottom:32px;
     }
     .info-desc {
